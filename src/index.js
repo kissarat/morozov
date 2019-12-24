@@ -25,7 +25,7 @@ const server = http.createServer(async function(req, res) {
          res.report(404, `Resource "${name}" not found`);
       }
    } catch (err) {
-      res.json(500, err);
+      res.report(500, err);
    }
 });
 

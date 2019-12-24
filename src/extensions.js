@@ -21,12 +21,26 @@ ServerResponse.prototype.json = function(status = 200, data = { ok: 1}) {
 }
 
 ServerResponse.prototype.report = function(status = 500, err = 'Unknown error') {
+    let result;
     if ('string' === typeof err) {
-        err = { message: err };
+        result = { message: err };
     }
-    if (err instanceof Error) {
+    else if (err instanceof Error) {
         console.error(err);
-        err = { message: err.message };
+        result = { message: err.message };
+        // result.type = err.constructor.name;
+        result.name = err.name;
+        for(const name of ['name', 'fileName', 'lineNumber', 'columnNumber']) {
+            const s = err[name];
+            if (s) {
+                result[name] = err[name];
+            }
+        }
+        if ('string' === typeof err.stack) {
+            result.stack = err.stack.split('\n').map(s => s.trim().replace('at ', ''));
+        }
+    } else {
+        result = err;
     }
-    this.json(status, err);
+    this.json(status, result);
 }
