@@ -2,24 +2,30 @@
 Public Morozov is simple REST API backend for frontenders
 ## Usage
 #### Find Objects
-```
+```HTTP
 GET /collection_name
+Accept: application/json
 ```
 You can use query string parameters as MongoDB `find` criterias
 #### Create Object
-```
+```HTTP
 POST /collection_name
-    { "requrest_body": "json" }
+Content-Type: application/json
+
+{"first": "first", "second": "second"}
 ```
 #### Update Object
-```
+```HTTP
 PUT /collection_name?_id=document_id
-    { "requrest_body": "json" }
+Content-Type: application/json
+
+{"first": "first", "second": "second"}
 ```
 You must use query string parameters as MongoDB `update` criterias
 #### Remove Object
-```
+```HTTP
 DELETE /collection_name?_id=document_id
+Accept: application/json
 ```
 You must use query string parameters as MongoDB `update` criterias
 ## Install
