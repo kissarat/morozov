@@ -59,3 +59,5 @@ package-lock.json
 pids
 results
 ssl
+bin/
+config/local.json
