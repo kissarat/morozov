@@ -11,7 +11,9 @@
     },
     "response": {
         "pretty": true,
-        "headers": {}
+        "headers": {
+            "link": "<https://github.com/kissarat/morozov#public-morozov>; rel=\"prefetch\""
+        }
     },
     "stamps": {
         "createdAt": false,
