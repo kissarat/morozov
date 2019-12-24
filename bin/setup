@@ -1,6 +1,0 @@
-#!/bin/bash
-
-# Generate project files
-BIN=$(dirname "${BASH_SOURCE[0]}")
-$BIN/create ignore npm > $BIN/../.npmignore
-$BIN/create ignore npm > $BIN/../.gitignore
