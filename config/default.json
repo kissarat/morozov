@@ -6,7 +6,8 @@
         "url": "mongodb://localhost:27017",
         "database": "morozov",
         "insert": {},
-        "update": { "multi": false }
+        "update": { "multi": false },
+        "remove": { "justOne": false }
     },
     "response": {
         "pretty": true,

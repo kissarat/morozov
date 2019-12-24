@@ -40,7 +40,7 @@ function now() {
 function stamp(data, property) {
     const name = config.get(`stamps.${property}`);
     if (name) {
-        data[true === name ? property : name] = now();
+        data[true === name ? property : name] = new Date();
     }
 }
 
