@@ -1,7 +1,7 @@
 {
   "name": "morozov",
   "version": "0.0.1",
-  "description": "Public Morozov is simple REST API backend for frontenders",
+  "description": "Public Morozov is simple MongoDB REST API for frontenders who have no backend",
   "main": "src/index.js",
   "scripts": {
     "start": "NODE_ENV=local node src/index.js",

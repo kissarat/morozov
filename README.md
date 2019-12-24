@@ -1,5 +1,5 @@
 # Public Morozov
-Public Morozov is simple REST API backend for frontenders
+Public Morozov is simple MongoDB REST API for frontenders who have no backend
 ## Usage
 #### Find Objects
 ```HTTP
