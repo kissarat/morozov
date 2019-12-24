@@ -1,6 +1,6 @@
 {
   "name": "morozov",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Public Morozov is simple MongoDB REST API for frontenders who have no backend",
   "main": "src/index.js",
   "scripts": {
