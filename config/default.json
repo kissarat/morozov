@@ -4,10 +4,16 @@
     },
     "mongo": {
         "url": "mongodb://localhost:27017",
-        "database": "morozov"
+        "database": "morozov",
+        "insert": {},
+        "update": { "multi": false }
     },
     "response": {
         "pretty": true,
         "headers": {}
+    },
+    "stamps": {
+        "createdAt": true,
+        "updatedAt": true
     }
 }

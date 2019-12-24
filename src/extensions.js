@@ -31,10 +31,12 @@ ServerResponse.prototype.report = function(status = 500, err = 'Unknown error') 
         // result.type = err.constructor.name;
         result.name = err.name;
         if ('string' === typeof err.stack) {
-            result.stack = err.stack.split('\n').map(s => s.trim().replace('at ', ''));
+            result.stack = err.stack
+            .split('\n')
+            .map(s => s.trim().replace('at ', ''));
         }
     } else {
         result = err;
     }
-    this.json(status, result);
+    this.json(err.status || status, result);
 }

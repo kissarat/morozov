@@ -4,25 +4,26 @@ const handle = require('./handle');
 const pkg = require('../package.json');
 const { connect } = require('./mongo');
 const { loadJSON } = require('./utils');
+const { parse } = require('querystring');
 require('./extensions');
 
 const server = http.createServer(async function(req, res) {
    try {
-      const [ name ] = req.url.slice(1).split('?');
+      const [ name, ...search ] = req.url.slice(1).split('?');
       if ('' === name) {
          res.json(200, {
             name: pkg.name,
             version: pkg.version,
          });
       } else if (/^\w+$/.test(name)) {
-         let data = null;
-         if ('GET' !== req.method) {
-            data = await loadJSON(req);
-         }
-         const responseData = await handle(name, req.method, {}, data);
-         res.json(200, responseData);
+         res.json(200, await handle(
+            name,
+            req.method,
+            search.length > 0 ? parse(search.join('?')) : {},
+            await loadJSON(req) || null
+         ));
       } else {
-         res.report(404, `Resource "${name}" not found`);
+         res.report(400, `Invalid path "${name}"`);
       }
    } catch (err) {
       res.report(500, err);

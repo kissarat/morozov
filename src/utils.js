@@ -1,3 +1,5 @@
+const config = require('config');
+
 function promise(callback) {
     return new Promise(function(resolve, reject) {
         callback(function(error, data) {
@@ -18,14 +20,28 @@ function load(readable) {
         })
         readable.on('error', reject) 
         readable.on('end', function() {
-            resolve(chuncks.length == 1 ? chunks[0] : Buffer.from(chuncks));
+            resolve(chuncks.length == 1 ? chuncks[0] : Buffer.from(chuncks));
         })
     })
 }
 
 async function loadJSON(readable) {
     const data = await load(readable);
-    return JSON.parse(data.toString('utf8'));
+    if (data.length > 0) {
+        return JSON.parse(data.toString('utf8'));
+    }
+    return null;
 }
 
-module.exports = { promise, load, loadJSON };
+function now() {
+    return new Date().toISOString();
+}
+
+function stamp(data, property) {
+    const name = config.get(`stamps.${property}`);
+    if (name) {
+        data[true === name ? property : name] = now();
+    }
+}
+
+module.exports = { promise, load, loadJSON, now, stamp };
