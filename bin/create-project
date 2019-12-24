@@ -1,0 +1,8 @@
+#!/bin/bash
+ 
+BIN=$(dirname "${BASH_SOURCE[0]}")
+TARGET=$1
+cp -r $BIN $TARGET
+cp -r $BIN/../data $TARGET
+cp $BIN/../LICENSE $TARGET
+> $BIN/../README.md

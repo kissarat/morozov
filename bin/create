@@ -1,0 +1,3 @@
+#!/bin/bash
+ 
+LC_ALL=C cat ./data/$1/base.txt ./data/$1/$2.txt | uniq | sort
