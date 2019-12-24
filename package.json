@@ -4,7 +4,8 @@
   "description": "Public Morozov is simple REST API backend for frontenders",
   "main": "src/index.js",
   "scripts": {
-    "local": "forever -w --minUptime 3000 --spinSleepTime 1000 src/index.js",
+    "start": "NODE_ENV=local node src/index.js",
+    "local": "NODE_ENV=local forever -w --minUptime 3000 --spinSleepTime 1000 src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
