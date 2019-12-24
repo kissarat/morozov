@@ -1,2 +1,2 @@
 # Morozov
-Simple MongoDB REST API
+Public Morozov is simple REST API backend for frontenders
