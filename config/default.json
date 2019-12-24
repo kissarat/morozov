@@ -1,0 +1,11 @@
+{
+    "http": {
+        "port": 3000
+    },
+    "response": {
+        "pretty": true,
+        "headers": {
+            "content-type": "application/json"
+        }
+    }
+}
