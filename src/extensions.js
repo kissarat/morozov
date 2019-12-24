@@ -30,12 +30,6 @@ ServerResponse.prototype.report = function(status = 500, err = 'Unknown error') 
         result = { message: err.message };
         // result.type = err.constructor.name;
         result.name = err.name;
-        for(const name of ['name', 'fileName', 'lineNumber', 'columnNumber']) {
-            const s = err[name];
-            if (s) {
-                result[name] = err[name];
-            }
-        }
         if ('string' === typeof err.stack) {
             result.stack = err.stack.split('\n').map(s => s.trim().replace('at ', ''));
         }

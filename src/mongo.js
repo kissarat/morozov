@@ -13,7 +13,7 @@ const connect = () => new Promise(function(resolve, reject) {
         if (err) {
             reject(err);
         } else {
-            const db = client.db(config.get('mongo.database'));
+            db = client.db(config.get('mongo.database'));
             resolve(db);
         }
     })
