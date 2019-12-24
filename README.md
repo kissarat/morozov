@@ -1,4 +1,4 @@
-# Morozov
+# Public Morozov
 Public Morozov is simple REST API backend for frontenders
 ## Install
 After installing MongoDB ([MacOS](https://github.com/mongodb/homebrew-brew#setup)) run
