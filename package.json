@@ -1,6 +1,6 @@
 {
   "name": "morozov",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Public Morozov is simple MongoDB REST API for frontenders who have no backend",
   "main": "src/index.js",
   "scripts": {
@@ -25,7 +25,9 @@
   "homepage": "https://github.com/kissarat/morozov#readme",
   "dependencies": {
     "config": "^3.2.4",
-    "forever": "^1.0.0",
     "mongodb": "^3.4.1"
+  },
+  "devDependencies": {
+    "forever": "^1.0.0"
   }
 }
