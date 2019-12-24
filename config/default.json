@@ -2,10 +2,12 @@
     "http": {
         "port": 3000
     },
+    "mongo": {
+        "url": "mongodb://localhost:27017",
+        "database": "morozov"
+    },
     "response": {
         "pretty": true,
-        "headers": {
-            "content-type": "application/json"
-        }
+        "headers": {}
     }
 }

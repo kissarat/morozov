@@ -24,6 +24,7 @@
   "homepage": "https://github.com/kissarat/morozov#readme",
   "dependencies": {
     "config": "^3.2.4",
-    "forever": "^1.0.0"
+    "forever": "^1.0.0",
+    "mongodb": "^3.4.1"
   }
 }
