@@ -3,7 +3,7 @@ const config = require('config');
 const handle = require('./handle');
 const pkg = require('../package.json');
 const { connect } = require('./mongo');
-const { loadJSON } = require('./utils');
+const { loadJSON } = require('auxiliary/lib/node');
 const { parse } = require('querystring');
 require('./extensions');
 
