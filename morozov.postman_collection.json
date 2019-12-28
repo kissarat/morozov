@@ -1,0 +1,203 @@
+{
+	"info": {
+		"_postman_id": "ec6d98b1-e964-45ba-8ba0-8a6ecc3ac4ab",
+		"name": "morozov",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"first_name\": \"Taras\",\n\t\"last_name\": \"Labiak\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{origin}}/{{collection}}",
+					"host": [
+						"{{origin}}"
+					],
+					"path": [
+						"{{collection}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "replace",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"kissarat\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{origin}}/{{collection}}?_id={{document_id}}",
+					"host": [
+						"{{origin}}"
+					],
+					"path": [
+						"{{collection}}"
+					],
+					"query": [
+						{
+							"key": "_id",
+							"value": "{{document_id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"first_name\": \"Arsen\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{origin}}/{{collection}}?_id={{document_id}}",
+					"host": [
+						"{{origin}}"
+					],
+					"path": [
+						"{{collection}}"
+					],
+					"query": [
+						{
+							"key": "_id",
+							"value": "{{document_id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{origin}}/{{collection}}?_id={{document_id}}",
+					"host": [
+						"{{origin}}"
+					],
+					"path": [
+						"{{collection}}"
+					],
+					"query": [
+						{
+							"key": "_id",
+							"value": "{{document_id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{origin}}/{{collection}}",
+					"host": [
+						"{{origin}}"
+					],
+					"path": [
+						"{{collection}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "90b86529-ea48-4d80-b7fc-4929e2dfb7a4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "c00c043c-df96-4e80-a139-ede564baaade",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "9ff6a599-e5a5-46f8-9042-c0b0cf14ad5c",
+			"key": "origin",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"id": "9cc643de-1c7e-4e36-a607-c9c2a785b38c",
+			"key": "document_id",
+			"value": "5e06f01fc57661119bed6b63",
+			"type": "string"
+		},
+		{
+			"id": "bfcf0d3f-0dcc-4074-8df9-c8e42b01e7ec",
+			"key": "collection",
+			"value": "user",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
