@@ -1,7 +1,6 @@
 const { collection } = require('./mongo');
-const { promise, stamp } = require('./utils');
+const { promise, stamp, isObjectIdString } = require('./utils');
 const config = require('config');
-const { ObjectId } = require('mongodb');
 
 const stampObject = data => {
     stamp(data, 'createdAt');
@@ -12,9 +11,6 @@ module.exports = async function handle(name, method, query = {}, data = null) {
     return promise(function(callback) {
         try {
             const $ = collection(name);
-            if (query._id) {
-                query._id = new ObjectId(query._id);
-            }
             switch (method) {
                 case 'GET':
                     $.find(query).toArray(callback);

@@ -5,22 +5,27 @@ const pkg = require('../package.json');
 const { connect } = require('./mongo');
 const { loadJSON } = require('auxiliary/lib/node');
 const { parse } = require('querystring');
+const { setupObjectIdFields } = require('./utils');
 require('./extensions');
 
 const server = http.createServer(async function(req, res) {
    try {
-      const [ name, ...search ] = req.url.slice(1).split('?');
+      const [ name, ...search ] = req.url
+         .slice(1)
+         .split('?');
       if ('' === name) {
          res.json(200, {
             name: pkg.name,
             version: pkg.version,
          });
-      } else if (/^\w+$/.test(name)) {
+      } else if (/^\w{3,100}$/.test(name)) {
          res.json(200, await handle(
             name,
             req.method,
-            search.length > 0 ? parse(search.join('?')) : {},
-            await loadJSON(req) || null
+            search.length > 0
+               ? setupObjectIdFields(parse(search.join('?')))
+               : {},
+            setupObjectIdFields(await loadJSON(req) || {})
          ));
       } else {
          res.report(400, `Invalid path "${name}"`);

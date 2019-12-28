@@ -1,4 +1,5 @@
 const config = require('config');
+const { ObjectId } = require('mongodb');
 
 function promise(callback) {
     return new Promise(function(resolve, reject) {
@@ -23,4 +24,19 @@ function stamp(data, property) {
     }
 }
 
-module.exports = { promise, now, stamp };
+function isObjectIdString(value) {
+    return 'string' === typeof value && /^[0-9a-f]{24}$/i.test(value);
+}
+
+function setupObjectIdFields(object) {
+    const result;
+    for(const key in query) {
+        const value = query[key];
+        result[key] = /(_id|Id)$/.test(key) && isObjectIdString(value)
+            ? new ObjectId(query[key])
+            : value;
+    }
+    return result;
+}
+
+module.exports = { promise, now, stamp, isObjectIdString, setupObjectIdFields };
