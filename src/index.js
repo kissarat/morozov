@@ -5,7 +5,7 @@ const pkg = require('../package.json');
 const { connect } = require('./mongo');
 const { loadJSON } = require('auxiliary/lib/node');
 const { parse } = require('querystring');
-const { setupObjectIdFields } = require('./utils');
+const { setupObjectIdFields, createEmptyObject } = require('./utils');
 require('./extensions');
 
 const server = http.createServer(async function(req, res) {

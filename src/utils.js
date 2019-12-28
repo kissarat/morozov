@@ -29,11 +29,11 @@ function isObjectIdString(value) {
 }
 
 function setupObjectIdFields(object) {
-    const result;
-    for(const key in query) {
-        const value = query[key];
+    const result = {};
+    for(const key in object) {
+        const value = object[key];
         result[key] = /(_id|Id)$/.test(key) && isObjectIdString(value)
-            ? new ObjectId(query[key])
+            ? new ObjectId(value)
             : value;
     }
     return result;
