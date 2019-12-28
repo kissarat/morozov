@@ -13,17 +13,6 @@ function promise(callback) {
     })
 }
 
-function now() {
-    return new Date().toISOString();
-}
-
-function stamp(data, property) {
-    const name = config.get(`stamps.${property}`);
-    if (name) {
-        data[true === name ? property : name] = new Date();
-    }
-}
-
 function isObjectIdString(value) {
     return 'string' === typeof value && /^[0-9a-f]{24}$/i.test(value);
 }
@@ -39,4 +28,4 @@ function setupObjectIdFields(object) {
     return result;
 }
 
-module.exports = { promise, now, stamp, isObjectIdString, setupObjectIdFields };
+module.exports = { promise, isObjectIdString, setupObjectIdFields };
